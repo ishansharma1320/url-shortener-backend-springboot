@@ -5,4 +5,7 @@ import com.ishans.dev.URLShortenerApplication.collection.URLObject;
 public interface URLObjectService {
 
 	public String save(URLObject urlObject);
+	
+	public URLObject getURLObjectById(String id);
+	
 }

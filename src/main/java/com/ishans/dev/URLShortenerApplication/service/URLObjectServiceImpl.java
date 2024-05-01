@@ -1,5 +1,7 @@
 package com.ishans.dev.URLShortenerApplication.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,4 +18,10 @@ public class URLObjectServiceImpl implements URLObjectService {
 	public String save(URLObject urlObject) {
 		return urlObjectRepository.save(urlObject).getUniqueId();
 	}
+	
+	@Override
+	public URLObject getURLObjectById(String id) {
+		return urlObjectRepository.findById(id).orElse(null);
+	}
+	
 }

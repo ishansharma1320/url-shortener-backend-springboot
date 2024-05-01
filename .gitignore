@@ -1,4 +1,4 @@
-src/main/resources/application.properties
+**/application.properties
 **/.DS_Store
 HELP.md
 .mvn/*

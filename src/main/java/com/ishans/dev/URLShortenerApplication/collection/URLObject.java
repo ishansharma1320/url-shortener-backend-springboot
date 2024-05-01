@@ -7,7 +7,7 @@ import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-
+import com.ishans.dev.URLShortenerApplication.util.TimestampUtil;
 
 import lombok.Builder;
 import lombok.Data;
@@ -20,15 +20,11 @@ public class URLObject {
 	@Id
 	private String uniqueId;
 	@Builder.Default
-	private String createdDate = getCurrentTimestampAsString();
+	private String createdDate = TimestampUtil.getCurrentTimestampAsString();
 	@Builder.Default
 	private Integer clicks = 0;
 	@Builder.Default
 	private List<URLHistory> history = List.of();
 	
-	private static String getCurrentTimestampAsString() {
-        LocalDateTime currentDateTime = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
-        return currentDateTime.format(formatter);
-    }
+	
 }
